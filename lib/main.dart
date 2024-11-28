@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-
 import 'view/dashboard.dart';
-import 'view/widgets/charts&graphs/linegraph.dart';
-
-
-
 
 void main() {
   runApp(const MyApp());
@@ -19,16 +14,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-   
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
-    return   MaterialApp(
-     debugShowCheckedModeBanner: false,
-      // home:  LineGraph(),
-      home:  DashBoard(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Dashboard(),
       // home:  ApiCheck(),
     );
   }

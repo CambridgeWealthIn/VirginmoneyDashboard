@@ -5,7 +5,7 @@ class StackedColumnChart extends StatefulWidget {
   const StackedColumnChart({super.key});
 
   @override
-  _StackedColumnChartState createState() => _StackedColumnChartState();
+  State<StackedColumnChart> createState() => _StackedColumnChartState();
 }
 
 class _StackedColumnChartState extends State<StackedColumnChart> {

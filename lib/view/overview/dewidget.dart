@@ -16,7 +16,7 @@ class DEWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 0.4;
     // double width = MediaQuery.of(context).size.width ;
-    data[0]["Value"];
+
     return data.isEmpty
         ? const Center(
             child: SizedBox(
@@ -31,7 +31,8 @@ class DEWidget extends StatelessWidget {
             child: Card(
               color: white,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),),
+                borderRadius: BorderRadius.circular(8),
+              ),
               elevation: 1,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
@@ -55,7 +56,7 @@ class DEWidget extends StatelessWidget {
                         ),
                         const Spacer(),
                         Image.asset(
-                          "assets/Maximize.png",
+                          "assets/overview/Maximize.png",
                           scale: 1.4,
                         )
                       ],
@@ -77,14 +78,15 @@ class DEWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
-                                width: MediaQuery.of(context).size.width *
-                                    0.13,
+                                width: MediaQuery.of(context).size.width * 0.13,
                                 height:
                                     MediaQuery.of(context).size.height * 0.23,
                                 decoration: containerShapeDecoration(),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 12.0,),
+                                    vertical: 12,
+                                    horizontal: 12.0,
+                                  ),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -109,7 +111,7 @@ class DEWidget extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
-                                      BarGraph()
+                                      const BarGraph()
                                     ],
                                   ),
                                 ),
@@ -121,8 +123,7 @@ class DEWidget extends StatelessWidget {
                                 decoration: containerShapeDecoration(),
                                 height:
                                     MediaQuery.of(context).size.height * 0.1,
-                                width: MediaQuery.of(context).size.width *
-                                    0.13,
+                                width: MediaQuery.of(context).size.width * 0.13,
                                 child: Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(4, 4, 4, 6),
@@ -181,7 +182,7 @@ class DEWidget extends StatelessWidget {
                                     title: data[1]["Metric"],
                                     number: data[1]["Value"],
                                     percent: "1.4%",
-                                    image: "/containmentRate.png",
+                                    image: "assets/overview/containmentRate.png",
                                   ),
                                   // const Spacer(),
                                   const SizedBox(
@@ -191,7 +192,7 @@ class DEWidget extends StatelessWidget {
                                     title: data[4]["Metric"],
                                     number: data[4]["Value"],
                                     percent: "3.2%",
-                                    image: "/CheckSquare.png",
+                                    image: "assets/overview/CheckSquare.png",
                                   ),
                                 ],
                               ),
@@ -351,7 +352,7 @@ class DECard extends StatelessWidget {
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset(
-                      'assets/appstore.png',
+                      'assets/overview/appstore.png',
                       scale: 1.6,
                     ),
                     const SizedBox(
@@ -415,7 +416,7 @@ class DECard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
-                      'assets/playstore.png',
+                      'assets/overview/playstore.png',
                       scale: 1.6,
                     ),
                     const SizedBox(

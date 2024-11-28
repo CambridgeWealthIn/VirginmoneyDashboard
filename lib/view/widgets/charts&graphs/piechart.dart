@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-
 class PieChart extends StatelessWidget {
   const PieChart({super.key});
 
@@ -11,12 +10,13 @@ class PieChart extends StatelessWidget {
       child: SfCircularChart(
         // title: const ChartTitle(text: 'Sales by Category'),
         // legend: const Legend(isVisible: true),
-        series: <PieSeries<_ChartData, String>>[
-          PieSeries<_ChartData, String>(
+        series: <PieSeries<ChartData, String>>[
+          PieSeries<ChartData, String>(
             dataSource: getChartData(), // Provide the data source
-            xValueMapper: (_ChartData data, _) => data.category,
-            yValueMapper: (_ChartData data, _) => data.sales,
-            dataLabelMapper: (_ChartData data, _) => '${data.category}: ${data.sales}',
+            xValueMapper: (ChartData data, _) => data.category,
+            yValueMapper: (ChartData data, _) => data.sales,
+            dataLabelMapper: (ChartData data, _) =>
+                '${data.category}: ${data.sales}',
             // dataLabelSettings: const DataLabelSettings(isVisible: true),
           ),
         ],
@@ -25,20 +25,20 @@ class PieChart extends StatelessWidget {
   }
 
   // Sample data
-  List<_ChartData> getChartData() {
+  List<ChartData> getChartData() {
     return [
-      _ChartData('Electronics', 35),
-      _ChartData('Clothing', 28),
-      _ChartData('Groceries', 34),
-      _ChartData('Books', 18),
+      ChartData('Electronics', 35),
+      ChartData('Clothing', 28),
+      ChartData('Groceries', 34),
+      ChartData('Books', 18),
     ];
   }
 }
 
 // Data model class
-class _ChartData {
+class ChartData {
   final String category;
   final double sales;
 
-  _ChartData(this.category, this.sales);
+  ChartData(this.category, this.sales);
 }
