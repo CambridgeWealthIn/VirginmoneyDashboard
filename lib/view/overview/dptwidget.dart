@@ -54,7 +54,7 @@ class DPTWidget extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    Image.asset("assets/Maximize.png",scale: 1.4,)
+                    Image.asset("assets/overview/Maximize.png",scale: 1.4,)
                   ],
                 ),
                 const SizedBox(
@@ -78,7 +78,7 @@ class DPTWidget extends StatelessWidget {
                         text1: "Mobile",
                         number2: data[1]["Value"],
                         text2: "Website",
-                        image: "/Monitor.png",
+                        image: "assets/overview/Monitor.png",
                       ),
                       // const Spacer(),
                       const SizedBox(
@@ -92,7 +92,7 @@ class DPTWidget extends StatelessWidget {
                         text1: "Mobile",
                         number2: data[3]["Value"],
                         text2: "Website",
-                        image: "/Trendingup.png",
+                        image: "assets/overview/Trendingup.png",
                       ),
                       const SizedBox(
                         width: 4,
@@ -105,7 +105,7 @@ class DPTWidget extends StatelessWidget {
                             number1: data[4]["Value"],
                             number2:  data[5]["Value"],
                             number3: data[6]["Value"],
-                            image: "/wallet.png",
+                            image: "assets/overview/wallet.png",
                           ),
                           const SizedBox(
                             height: 4,
@@ -116,7 +116,7 @@ class DPTWidget extends StatelessWidget {
                             number1: data[7]["Value"],
                             number2: data[8]["Value"],
                             number3:data[9]["Value"],
-                            image: "/calculator.png",
+                            image: "assets/overview/calculator.png",
                           )
                         ],
                       ),
@@ -325,7 +325,7 @@ class DACard extends StatelessWidget {
             ),
             const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -350,7 +350,7 @@ class DACard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Spacer(),
+                // const Spacer(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -374,7 +374,7 @@ class DACard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Spacer(),
+                // const Spacer(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

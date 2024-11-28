@@ -1,9 +1,8 @@
-import 'package:dashboard/view/widgets/charts&graphs/linegraph.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/container_shape_decoration.dart';
-
+import '../widgets/charts&graphs/spark_linegraph.dart';
 
 class DCRWidget extends StatelessWidget {
   const DCRWidget({
@@ -56,7 +55,10 @@ class DCRWidget extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Image.asset("assets/Maximize.png", scale: 1.4,)
+                        Image.asset(
+                          "assets/overview/Maximize.png",
+                          scale: 1.4,
+                        )
                       ],
                     ),
                     const SizedBox(
@@ -79,8 +81,9 @@ class DCRWidget extends StatelessWidget {
                                 height: height,
                                 title: data[0]["Metric"],
                                 number: data[0]["Value"].toString(),
-                                image: "/Downloadcloud.png",
-                                child:Image.asset("assets/digitalprimacydonut.png"),
+                                image: "assets/overview/Downloadcloud.png",
+                                child: Image.asset(
+                                    "overview/digitalprimacydonut.png"),
                               ),
                               const Spacer(),
                               DCRCard(
@@ -88,8 +91,8 @@ class DCRWidget extends StatelessWidget {
                                 height: height,
                                 title: data[1]["Metric"],
                                 number: data[1]["Value"].toString(),
-                                image: "/User.png",
-                                child: Image.asset("assets/pcabargraph.png"),
+                                image: "assets/overview/User.png",
+                                child: Image.asset("assets/overview/pcabargraph.png"),
                               ),
                             ],
                           ),
@@ -104,17 +107,18 @@ class DCRWidget extends StatelessWidget {
                                 height: height,
                                 title: data[2]["Metric"],
                                 number: data[2]["Value"].toString(),
-                                image: "/building.png",
-                                child:  Image.asset("assets/businessbargraph.png"),
+                                image: "assets/overview/building.png",
+                                child:
+                                    Image.asset("assets/overview/businessbargraph.png"),
                               ),
                               const Spacer(),
                               DCRCard(
                                 width: width,
-                                  height: height,
+                                height: height,
                                 title: data[3]["Metric"],
                                 number: data[3]["Value"].toString(),
-                                image: "/CreditCard.png",
-                                child:  LineGraph(),
+                                image: "assets/overview/CreditCard.png",
+                                child: SparkLinegraph(),
                                 // child:  Image.asset("assets/linegraph.png"),
                               ),
                             ],

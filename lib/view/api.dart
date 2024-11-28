@@ -5,8 +5,10 @@ import 'dart:convert';
 
 
 class ApiCheck extends StatefulWidget {
+  const ApiCheck({super.key});
+
   @override
-  _ApiCheckState createState() => _ApiCheckState();
+  State<ApiCheck> createState() => _ApiCheckState();
 }
 
 class _ApiCheckState extends State<ApiCheck> {
@@ -23,7 +25,7 @@ class _ApiCheckState extends State<ApiCheck> {
     final response = await http.get(Uri.parse('http://10.10.10.160:5000/data'));
     // final response = await http.get(Uri.parse('http://192.168.238.154:5000/api/excel-data'));
     // final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-print(response.body);
+
     if (response.statusCode == 200) {
       setState(() {
         posts = json.decode(response.body); // Decode and set posts

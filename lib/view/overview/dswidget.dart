@@ -2,7 +2,7 @@ import 'package:dashboard/constants/container_shape_decoration.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
-import 'charts&graphs/stackedcolumnchart.dart';
+import '../widgets/charts&graphs/stackedcolumnchart.dart';
 
 class DSWidget extends StatelessWidget {
   const DSWidget({
@@ -60,7 +60,7 @@ class DSWidget extends StatelessWidget {
                                 ),
                                 const Spacer(),
                                 Image.asset(
-                                  "assets/Maximize.png",
+                                  "assets/overview/Maximize.png",
                                   scale: 1.4,
                                 )
                               ],
@@ -116,7 +116,7 @@ class DSWidget extends StatelessWidget {
                                             text2: "by region",
                                             text3: "(N England)",
                                             number: data[3]["Value"],
-                                            image: "/Globe.png",
+                                            image: "assets/overview/Globe.png",
                                             // child: const BarChart(),
                                           ),
                                           const SizedBox(
@@ -129,7 +129,7 @@ class DSWidget extends StatelessWidget {
                                             text2: "by Income ",
                                             text3: "(\u20AC250k-\u20AC2100k)",
                                             number: data[4]["Value"],
-                                            image: "/poundsign.png",
+                                            image: "assets/overview/poundsign.png",
                                             // child: const BarChart(),
                                           ),
                                           const SizedBox(
@@ -142,7 +142,7 @@ class DSWidget extends StatelessWidget {
                                             text2: "by Age ",
                                             text3: "(30-49) ",
                                             number: data[5]["Value"],
-                                            image: "/Users.png",
+                                            image: "assets/overview/Users.png",
                                             // child: const BarChart(),
                                           ),
                                         ],
@@ -168,7 +168,7 @@ class DSWidget extends StatelessWidget {
                                           Row(
                                             children: [
                                               Image.asset(
-                                                "assets/Package.png",
+                                                "assets/overview/Package.png",
                                                 scale: 1.6,
                                               ),
                                               const SizedBox(
@@ -288,7 +288,7 @@ class DSCard1 extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      "assets/Tag.png",
+                      "assets/overview/Tag.png",
                       scale: 1.6,
                     ),
                     const SizedBox(
@@ -392,7 +392,7 @@ class DSCard2 extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      "assets/Smartphone-1.png",
+                      "assets/overview/Smartphone-1.png",
                       scale: 1.6,
                     ),
                     const SizedBox(

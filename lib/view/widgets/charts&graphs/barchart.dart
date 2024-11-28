@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-
 class BarChart extends StatelessWidget {
   const BarChart({super.key});
 
@@ -14,12 +13,12 @@ class BarChart extends StatelessWidget {
         borderWidth: 0,
         primaryXAxis: const CategoryAxis(
           majorGridLines: MajorGridLines(width: 0),
-          axisLine: AxisLine(width: 0), 
+          axisLine: AxisLine(width: 0),
         ), // X-axis for categories
         primaryYAxis: const NumericAxis(
-        //   labelFormat: '{value}',
-        majorGridLines: MajorGridLines(width: 0),
-        axisLine: AxisLine(width: 0), 
+          //   labelFormat: '{value}',
+          majorGridLines: MajorGridLines(width: 0),
+          axisLine: AxisLine(width: 0),
         ), // Y-axis with numeric values
         series: <CartesianSeries<ChartData, String>>[
           ColumnSeries<ChartData, String>(

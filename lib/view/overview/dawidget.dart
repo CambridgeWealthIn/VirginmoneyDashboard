@@ -59,7 +59,7 @@ class DAWidget extends StatelessWidget {
                                   ),
                                 ),
                                 const Spacer(),
-                                Image.asset("assets/Maximize.png",scale: 1.4,)
+                                Image.asset("assets/overview/Maximize.png",scale: 1.4,)
                               ],
                             ),
                             const SizedBox(
@@ -88,7 +88,7 @@ class DAWidget extends StatelessWidget {
                                             title: data[0]["Metric"],
                                             number: data[0]["Value"],
                                             percent: "1.9%",
-                                            image: "/LogIn.png",
+                                            image: "assets/overview/LogIn.png",
                                           ),
                                           // const Spacer(),
                                           const SizedBox(
@@ -100,7 +100,7 @@ class DAWidget extends StatelessWidget {
                                             title: data[1]["Metric"],
                                             number: data[1]["Value"],
                                             percent: "1.2%",
-                                            image: "/Smartphone.png",
+                                            image: "assets/overview/Smartphone.png",
                                           ),
                                         ],
                                       ),
@@ -112,8 +112,8 @@ class DAWidget extends StatelessWidget {
                                         height: height,
                                         title: data[2]["Metric"],
                                         number: data[2]["Value"],
-                                        image: "assets/LogIn.png",
-                                        child:  Image.asset("assets/businessbargraph.png"),
+                                        image: "assets/overview/LogIn.png",
+                                        child:  Image.asset("assets/overview/businessbargraph.png"),
                                         
                                       ),
                                     ],
@@ -141,7 +141,7 @@ class DAWidget extends StatelessWidget {
                                               Row(
                                                 children: [
                                                   Image.asset(
-                                                    "assets/Activity.png",
+                                                    "assets/overview/Activity.png",
                                                     scale: 1.6,
                                                   ),
                                                   const SizedBox(
