@@ -37,27 +37,44 @@ class _LineGraphState extends State<LineGraph> {
 
   @override
   Widget build(BuildContext context) {
-    // Dummy Data
-    final List<NiftyGraph> data = [
-      NiftyGraph(date: "2023-01-01", price: 10000),
-      NiftyGraph(date: "2023-02-01", price: 10100),
-      NiftyGraph(date: "2023-03-01", price: 10300),
-      NiftyGraph(date: "2023-04-01", price: 11000),
-      NiftyGraph(date: "2023-05-01", price: 11500),
-      NiftyGraph(date: "2023-06-01", price: 11700),
-      NiftyGraph(date: "2023-07-01", price: 11200),
-      NiftyGraph(date: "2023-08-01", price: 11100),
-      NiftyGraph(date: "2023-09-01", price: 12800),
-      NiftyGraph(date: "2023-10-01", price: 12500),
-      NiftyGraph(date: "2023-11-01", price: 13000),
+    // Dummy Data for multiple lines
+    final List<List<NiftyGraph>> dynamicData = [
+      [
+        NiftyGraph(date: "2023-01-01", price: 10000),
+        NiftyGraph(date: "2023-02-01", price: 10100),
+        NiftyGraph(date: "2023-03-01", price: 10300),
+        NiftyGraph(date: "2023-04-01", price: 11000),
+        NiftyGraph(date: "2023-05-01", price: 11500),
+      ], // First dataset (line 1)
+      [
+        NiftyGraph(date: "2023-01-01", price: 5000),
+        NiftyGraph(date: "2023-02-01", price: 7000),
+        NiftyGraph(date: "2023-03-01", price: 6000),
+        NiftyGraph(date: "2023-04-01", price: 9500),
+        NiftyGraph(date: "2023-05-01", price: 10000),
+      ], // Second dataset (line 2)
+      [
+        NiftyGraph(date: "2023-01-01", price: 2000),
+        NiftyGraph(date: "2023-02-01", price: 4000),
+        NiftyGraph(date: "2023-03-01", price: 3000),
+        NiftyGraph(date: "2023-04-01", price: 5000),
+        NiftyGraph(date: "2023-05-01", price: 6000),
+      ], // Third dataset (line 3)
     ];
 
-    double minYValue =
-        data.map((point) => point.price!).reduce((a, b) => a < b ? a : b);
-    double maxYValue =
-        data.map((point) => point.price!).reduce((a, b) => a > b ? a : b);
+    double minYValue = dynamicData
+        .expand((list) => list)
+        .map((point) => point.price!)
+        .reduce((a, b) => a < b ? a : b);
+    double maxYValue = dynamicData
+        .expand((list) => list)
+        .map((point) => point.price!)
+        .reduce((a, b) => a > b ? a : b);
 
-    String minDate = data.map((point) => point.date).reduce(
+    String minDate = dynamicData
+        .expand((list) => list)
+        .map((point) => point.date)
+        .reduce(
           (current, next) =>
               DateTime.parse(current).isBefore(DateTime.parse(next))
                   ? current
@@ -69,13 +86,12 @@ class _LineGraphState extends State<LineGraph> {
         Expanded(
           child: SfCartesianChart(
             plotAreaBorderColor: Colors.transparent,
-            trackballBehavior:
-                _trackballBehavior, // Trackball behavior for tooltips
+            trackballBehavior: _trackballBehavior, // Trackball behavior for tooltips
 
             primaryXAxis: DateTimeAxis(
               minimum: DateTime.parse(minDate),
               maximum: DateTime.now(),
-              desiredIntervals: 11,
+              desiredIntervals: 5,
               intervalType: DateTimeIntervalType.months,
               majorGridLines: const MajorGridLines(color: Colors.transparent),
               minorTickLines: const MinorTickLines(color: Colors.transparent),
@@ -93,24 +109,17 @@ class _LineGraphState extends State<LineGraph> {
                   const MajorTickLines(width: 0, color: Colors.transparent),
               labelStyle: const TextStyle(color: Colors.transparent),
             ),
-            series: <CartesianSeries>[
-              SplineAreaSeries<NiftyGraph, DateTime>(
+            series: dynamicData.map<CartesianSeries>((lineData) {
+              return SplineSeries<NiftyGraph, DateTime>(
                 animationDuration: 3000,
-                borderWidth: 2,
-                borderColor: Colors.green.shade700,
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.green.shade300.withOpacity(0.3),
-                    Colors.green.shade700,
-                  ],
-                  stops: const [0.1, 1.0],
-                  transform: const GradientRotation(270 * 3.14 / 180),
-                ),
-                dataSource: data,
-                xValueMapper: (NiftyGraph data, _) => DateTime.parse(data.date),
+                dataSource: lineData,
+                xValueMapper: (NiftyGraph data, _) =>
+                    DateTime.parse(data.date),
                 yValueMapper: (NiftyGraph data, _) => data.price,
-              ),
-            ],
+                name: 'Line ${dynamicData.indexOf(lineData) + 1}',
+                color: lineData.length.isEven ? Colors.blue : Colors.green,
+              );
+            }).toList(),
           ),
         ),
       ],

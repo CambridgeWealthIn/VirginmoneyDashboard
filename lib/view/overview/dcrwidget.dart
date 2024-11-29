@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/container_shape_decoration.dart';
-import '../widgets/charts&graphs/spark_linegraph.dart';
+import '../widgets/charts&graphs/fl_donutchart.dart';
+import '../widgets/charts&graphs/linegraph.dart';
+import '../widgets/charts&graphs/micro_barchart.dart';
+import '../widgets/charts&graphs/spike_linegraph.dart';
+import 'expanded_dcr_widget.dart';
 
 class DCRWidget extends StatelessWidget {
   const DCRWidget({
@@ -55,9 +59,19 @@ class DCRWidget extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Image.asset(
-                          "assets/overview/Maximize.png",
-                          scale: 1.4,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LineGraph(),
+                              ),
+                            );
+                          },
+                          child: Image.asset(
+                            "assets/overview/Maximize.png",
+                            scale: 1.4,
+                          ),
                         )
                       ],
                     ),
@@ -92,7 +106,9 @@ class DCRWidget extends StatelessWidget {
                                 title: data[1]["Metric"],
                                 number: data[1]["Value"].toString(),
                                 image: "assets/overview/User.png",
-                                child: Image.asset("assets/overview/pcabargraph.png"),
+                                child: MicroBarchart(),
+                                // child: Image.asset(
+                                //     "assets/overview/pcabargraph.png"),
                               ),
                             ],
                           ),
@@ -108,8 +124,8 @@ class DCRWidget extends StatelessWidget {
                                 title: data[2]["Metric"],
                                 number: data[2]["Value"].toString(),
                                 image: "assets/overview/building.png",
-                                child:
-                                    Image.asset("assets/overview/businessbargraph.png"),
+                                child: const DonutChartPage(),
+                                // child: Image.asset("assets/overview/businessbargraph.png"),
                               ),
                               const Spacer(),
                               DCRCard(
@@ -118,7 +134,7 @@ class DCRWidget extends StatelessWidget {
                                 title: data[3]["Metric"],
                                 number: data[3]["Value"].toString(),
                                 image: "assets/overview/CreditCard.png",
-                                child: SparkLinegraph(),
+                                child: SpikeLinegraph(),
                                 // child:  Image.asset("assets/linegraph.png"),
                               ),
                             ],
@@ -164,6 +180,7 @@ class DCRCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
+
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
