@@ -71,14 +71,17 @@ class _OverviewState extends State<Overview> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 0.25;
     double width = (MediaQuery.of(context).size.width - 30) / 2;
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 14.0),
+      child: Column(
+        children: [
+          Row(
             children: [
               DCRWidget(
-                  height: height, width: width, data: customerRegistrations,),
+                height: height,
+                width: width,
+                data: customerRegistrations,
+              ),
               DAWidget(
                 height: height,
                 width: width,
@@ -86,10 +89,7 @@ class _OverviewState extends State<Overview> {
               )
             ],
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: Row(
+          Row(
             children: [
               DEWidget(
                 data: digitalEngagement,
@@ -100,13 +100,13 @@ class _OverviewState extends State<Overview> {
               )
             ],
           ),
-        ),
-        DPTWidget(
-          height: height,
-          width: width,
-          data: paymentTransactions,
-        )
-      ],
+          DPTWidget(
+            height: height,
+            width: width,
+            data: paymentTransactions,
+          )
+        ],
+      ),
     );
   }
 }

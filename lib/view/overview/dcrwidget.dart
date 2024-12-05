@@ -106,7 +106,7 @@ class DCRWidget extends StatelessWidget {
                                 title: data[1]["Metric"],
                                 number: data[1]["Value"].toString(),
                                 image: "assets/overview/User.png",
-                                child: MicroBarchart(),
+                                child:const MicroBarchart(),
                                 // child: Image.asset(
                                 //     "assets/overview/pcabargraph.png"),
                               ),

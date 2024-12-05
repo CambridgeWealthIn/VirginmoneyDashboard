@@ -2,6 +2,7 @@ import 'package:dashboard/constants/container_shape_decoration.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../widgets/charts&graphs/bargraph.dart';
 import '../widgets/charts&graphs/stackedcolumnchart.dart';
 
 class DSWidget extends StatelessWidget {
@@ -36,7 +37,7 @@ class DSWidget extends StatelessWidget {
                     child: Card(
                       color: white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
+                          borderRadius: BorderRadius.circular(8),),
                       elevation: 1,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -160,7 +161,7 @@ class DSWidget extends StatelessWidget {
                                     decoration: containerShapeDecoration(),
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 8.0, vertical: 8),
+                                          horizontal: 8.0, vertical: 8,),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -234,8 +235,10 @@ class DSWidget extends StatelessWidget {
                                               )
                                             ],
                                           ),
-                                          const StackedColumnChart()
-                                        ],
+                                          // const StackedColumnChart()
+
+const   BarChartGraph(),          
+                            ],
                                       ),
                                     ),
                                   ),

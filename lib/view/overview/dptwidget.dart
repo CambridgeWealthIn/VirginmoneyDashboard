@@ -24,111 +24,108 @@ class DPTWidget extends StatelessWidget {
       height: 45,
       width: 45,
       child:  CircularProgressIndicator(),),)
-   :  Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: SizedBox(
-        height: height,
-        width: MediaQuery.of(context).size.width * 0.98,
-        child: Card(
-          color: white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          elevation: 1,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8.0,
-              horizontal: 6,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    FittedBox(
-                      child: Text(
-                        data[0]["Block Name"],
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: textRed,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Image.asset("assets/overview/Maximize.png",scale: 1.4,)
-                  ],
-                ),
-                const SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  // height: height / 2,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      DACard1(
-                        width: width,
-                        height: height,
-                        title:  data[0]["Metric"],
-                        number1: data[0]["Value"],
-                        text1: "Mobile",
-                        number2: data[1]["Value"],
-                        text2: "Website",
-                        image: "assets/overview/Monitor.png",
-                      ),
-                      // const Spacer(),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      DACard1(
-                        width: width,
-                        height: height,
-                        title:  data[2]["Metric"],
-                        number1: data[2]["Value"],
-                        text1: "Mobile",
-                        number2: data[3]["Value"],
-                        text2: "Website",
-                        image: "assets/overview/Trendingup.png",
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Column(
-                        children: [
-                          DACard(
-                            height: height,
-                            title: data[4]["Metric"],
-                            number1: data[4]["Value"],
-                            number2:  data[5]["Value"],
-                            number3: data[6]["Value"],
-                            image: "assets/overview/wallet.png",
-                          ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          DACard(
-                            height: height,
-                            title:  data[7]["Metric"],
-                            number1: data[7]["Value"],
-                            number2: data[8]["Value"],
-                            number3:data[9]["Value"],
-                            image: "assets/overview/calculator.png",
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+   :  SizedBox(
+     height: height,
+     width: MediaQuery.of(context).size.width * 0.98,
+     child: Card(
+       color: white,
+       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+       elevation: 1,
+       child: Padding(
+         padding: const EdgeInsets.symmetric(
+           vertical: 8.0,
+           horizontal: 6,
+         ),
+         child: Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
+           children: [
+             Row(
+               children: [
+                 FittedBox(
+                   child: Text(
+                     data[0]["Block Name"],
+                     style: TextStyle(
+                       fontSize: 14,
+                       color: textRed,
+                       fontWeight: FontWeight.bold,
+                     ),
+                   ),
+                 ),
+                 const Spacer(),
+                 Image.asset("assets/overview/Maximize.png",scale: 1.4,)
+               ],
+             ),
+             const SizedBox(
+               height: 6,
+             ),
+             Container(
+               // height: height / 2,
+               decoration: ShapeDecoration(
+                 shape: RoundedRectangleBorder(
+                   borderRadius: BorderRadius.circular(3),
+                 ),
+               ),
+               child: Row(
+                 mainAxisAlignment: MainAxisAlignment.start,
+                 children: [
+                   DACard1(
+                     width: width,
+                     height: height,
+                     title:  data[0]["Metric"],
+                     number1: data[0]["Value"],
+                     text1: "Mobile",
+                     number2: data[1]["Value"],
+                     text2: "Website",
+                     image: "assets/overview/Monitor.png",
+                   ),
+                   // const Spacer(),
+                   const SizedBox(
+                     width: 4,
+                   ),
+                   DACard1(
+                     width: width,
+                     height: height,
+                     title:  data[2]["Metric"],
+                     number1: data[2]["Value"],
+                     text1: "Mobile",
+                     number2: data[3]["Value"],
+                     text2: "Website",
+                     image: "assets/overview/Trendingup.png",
+                   ),
+                   const SizedBox(
+                     width: 4,
+                   ),
+                   Column(
+                     children: [
+                       DACard(
+                         height: height,
+                         title: data[4]["Metric"],
+                         number1: data[4]["Value"],
+                         number2:  data[5]["Value"],
+                         number3: data[6]["Value"],
+                         image: "assets/overview/wallet.png",
+                       ),
+                       const SizedBox(
+                         height: 4,
+                       ),
+                       DACard(
+                         height: height,
+                         title:  data[7]["Metric"],
+                         number1: data[7]["Value"],
+                         number2: data[8]["Value"],
+                         number3:data[9]["Value"],
+                         image: "assets/overview/calculator.png",
+                       )
+                     ],
+                   ),
+                 ],
+               ),
+             ),
+           ],
+         ),
+       ),
+     ),
+   );
   }
 }
 
